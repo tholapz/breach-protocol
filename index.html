@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breach Protocol Minigame</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Game Over banner overlay -->
+    <div id="game-over-banner" class="game-over-banner hidden">
+        <div class="game-over-content">
+            <h2>GAME OVER</h2>
+            <p id="game-over-message">You matched 0 sequence(s)</p>
+            <button id="restart-btn">RESTART</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <span class="title">BREACH PROTOCOL</span>
+            <span class="timer" id="timer">Time: 30.00</span>
+        </div>
+        <div class="timer-progress-container">
+            <div id="timer-progress" class="timer-progress"></div>
+        </div>
+        <div class="game-area">
+            <div class="left-panel">
+                <div class="matrix-section">
+                    <div class="section-title">CODE MATRIX</div>
+                    <div id="code-matrix" class="code-matrix"></div>
+                </div>
+            </div>
+            <div class="right-panel">
+                <div class="buffer-section">
+                    <div class="section-title">BUFFER</div>
+                    <div id="buffer" class="buffer"></div>
+                </div>
+                <div class="sequences-section">
+                    <div class="section-title">SEQUENCES REQUIRED</div>
+                    <ul id="sequences" class="sequences"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button id="reset-btn">Reset</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

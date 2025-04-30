@@ -1,0 +1,251 @@
+body {
+    background: #181c1f;
+    color: #e6ff62;
+    font-family: 'Orbitron', 'Consolas', monospace;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #22272a;
+    border: 2px solid #e6ff62;
+    border-radius: 12px;
+    box-shadow: 0 0 32px #0f0 40%;
+    padding: 24px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #e6ff62;
+}
+.timer {
+    font-size: 1.2rem;
+    color: #aaffcc;
+    background: #1c2a1f;
+    padding: 4px 16px;
+    border-radius: 8px;
+}
+.section-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #e6ff62;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #e6ff62;
+    padding-bottom: 2px;
+}
+.game-area {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+}
+
+.left-panel {
+    flex: 3;
+}
+
+.right-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.matrix-section {
+    width: 100%;
+}
+
+.buffer-section, .sequences-section {
+    width: 100%;
+}
+.code-matrix {
+    display: grid;
+    grid-template-columns: repeat(5, 48px);
+    grid-template-rows: repeat(5, 48px);
+    gap: 6px;
+    background: #101314;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e6ff62;
+}
+.matrix-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background: #232b2d;
+    border: 2px solid #e6ff62;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    user-select: none;
+}
+.matrix-cell.highlight {
+    background: #3a3f41;
+    border-color: #aaffcc;
+    color: #e6ff62;
+}
+
+.matrix-cell.selected {
+    background: #e6ff62;
+    color: #232b2d;
+    border-color: #aaffcc;
+}
+.matrix-cell.matched {
+    background: #32ff7a;
+    color: #232b2d;
+    border-color: #32ff7a;
+}
+.buffer {
+    display: flex;
+    gap: 8px;
+    min-height: 48px;
+    align-items: center;
+    background: #101314;
+    border-radius: 8px;
+    border: 1px solid #e6ff62;
+    padding: 8px;
+    font-size: 1.2rem;
+}
+
+.buffer-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border: 2px dashed #e6ff62;
+    border-radius: 6px;
+    color: #e6ff62;
+    background: transparent;
+}
+
+.buffer-slot.filled {
+    background: #232b2d;
+    border-style: solid;
+}
+.sequences {
+    list-style: none;
+    padding: 0;
+}
+.sequences li {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #e6ff62;
+    background: #101314;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e6ff62;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.sequences li.matched {
+    color: #232b2d;
+    background: #32ff7a;
+    border-color: #32ff7a;
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(50, 255, 122, 0.5);
+}
+
+
+.footer {
+    margin-top: 24px;
+    text-align: right;
+}
+
+.timer-progress-container {
+    height: 8px;
+    background: #101314;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid #e6ff62;
+}
+
+.timer-progress {
+    height: 100%;
+    width: 100%;
+    background: #e6ff62;
+    transition: width 0.05s linear;
+}
+#reset-btn {
+    background: #e6ff62;
+    color: #232b2d;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: 'Orbitron', 'Consolas', monospace;
+    transition: background 0.2s;
+}
+#reset-btn:hover {
+    background: #aaffcc;
+}
+
+/* Game Over Banner Styles */
+.game-over-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-over-content {
+    background: #22272a;
+    border: 2px solid #e6ff62;
+    border-radius: 12px;
+    padding: 30px 50px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(230, 255, 98, 0.4);
+}
+
+.game-over-content h2 {
+    font-size: 2.5rem;
+    color: #ff3a3a;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.game-over-content p {
+    font-size: 1.2rem;
+    color: #e6ff62;
+    margin-bottom: 30px;
+}
+
+#restart-btn {
+    background: #e6ff62;
+    color: #232b2d;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-family: 'Orbitron', 'Consolas', monospace;
+    transition: background 0.2s;
+    letter-spacing: 1px;
+}
+
+#restart-btn:hover {
+    background: #aaffcc;
+    transform: scale(1.05);
+}
